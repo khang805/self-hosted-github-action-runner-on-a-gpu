@@ -1,15 +1,17 @@
 name: GPU Accelerated Training
-on: [push, workflow_dispatch] # workflow_dispatch lets you start it manually!
+on: [push, workflow_dispatch]
 
 jobs:
   train-on-gpu:
+    # This must match the label you gave your runner in the AWS terminal
     runs-on: [self-hosted, github_runner]
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Execute ML Task
-        run: python3 train.py
-
-
-
+        # We 'source' the AWS PyTorch environment so 'python3' can find 'torch'
+        run: |
+          source /opt/pytorch/bin/activate
+          python3 train.py
