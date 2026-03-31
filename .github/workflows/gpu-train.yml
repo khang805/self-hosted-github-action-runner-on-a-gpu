@@ -3,7 +3,7 @@ on: [push, workflow_dispatch] # workflow_dispatch lets you start it manually!
 
 jobs:
   train-on-gpu:
-    runs-on: [self-hosted, github-runner]
+    runs-on: [self-hosted, github_runner]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -11,5 +11,5 @@ jobs:
       - name: Execute ML Task
         run: python3 train.py
 
-        
+
 
