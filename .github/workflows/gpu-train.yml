@@ -1,0 +1,14 @@
+name: GPU Accelerated Training
+on: [push, workflow_dispatch] # workflow_dispatch lets you start it manually!
+
+jobs:
+  train-on-gpu:
+    runs-on: [self-hosted, gpu-runner]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Execute ML Task
+        run: python3 train.py
+
+        
