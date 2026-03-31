@@ -5,7 +5,7 @@ jobs:
   train-on-gpu:
     # This must match the label you gave your runner in the AWS terminal
     runs-on: [self-hosted, github_runner]
-    
+      
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
